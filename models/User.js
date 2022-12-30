@@ -75,6 +75,7 @@ UserSchema.methods.generateJWT = async function () {
     let payload = {
         lastname: this.username,
         email: this.email,
+        role: this.role,
         id: this._id,
     };
     return await sign(payload, SECRECT, {expiresIn: '1 day'});
@@ -87,7 +88,7 @@ UserSchema.methods.generatePasswordReset = function () {
 };
 
 UserSchema.methods.getUserInfo = function () {
-    return pick(this, ["_id", "firstname", "lastname", "middlename", "email", "idnumber", "verified"]);
+    return pick(this, ["_id", "firstname", "lastname", "middlename", "email", "idnumber", "role", "verified"]);
 }
 
 const User = model("user", UserSchema);

@@ -24,6 +24,14 @@ const TrellerSchema = new Schema ({
     second_time_net_wight: {
         type: String,
         required: false
+    },
+    remain_gas_los: {
+        type: String,
+        required: true
+    },
+    account: {
+        ref: "User",
+        type: Schema.Types.ObjectId,
     }
 }, { timestamps: true})
 
