@@ -36,6 +36,10 @@ const CustomersSchema = new Schema ({
     town:{
         type:String,
         required: true
+    },
+    account: {
+        ref: "User",
+        type: Schema.Types.ObjectId,
     }
     
 }, { timestamps: true })

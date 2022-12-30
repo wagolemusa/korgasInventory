@@ -17,10 +17,18 @@ const FutureclientsSchema = new Schema ({
         type: String,
         required: true
     },
+    status:{
+        type: String,
+        required: false
+    },
     address : {
         type: Schema.Types.ObjectId,
         ref: "Address"
     },
+    account: {
+        ref: "User",
+        type: Schema.Types.ObjectId,
+    }
     
 }, {timestamps: true})
 
