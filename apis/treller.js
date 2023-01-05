@@ -38,6 +38,25 @@ router.post('/v1/treller', requiresSignin,  async(req, res) => {
     }
 })
 
+/**
+ * @description Get Records from treller table
+ * @access Only Manager, sub-Admin and Admin can access
+ * @api /api/v1/treller
+ * @type GET
+ */
+router.get('/v1/treller', requiresSignin, async(req,res) =>{
+
+    try{
+        let treller = await Treller.find().find().sort({_id: -1});
+
+        return res.status(200).json({
+            treller
+        })
+    }catch(err){
+        console.log(err)
+        
+    }
+} )
 export default router;
 
 

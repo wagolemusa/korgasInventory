@@ -17,6 +17,8 @@ import CustomerApis from './apis/customers'
 import TrellerApis from  './apis/treller'
 import KgsApis from './apis/kgs'
 import FuturecustomerApis from './apis/futureCustomers'
+import GasStockApis from './apis/gasStock'
+
 
 
 // import passport middleware
@@ -39,7 +41,8 @@ app.use("/api", AddressApis);
 app.use("/api", CustomerApis);
 app.use("/api", TrellerApis)
 app.use("/api", KgsApis);
-app.use("/api", FuturecustomerApis)
+app.use("/api", FuturecustomerApis);
+app.use("/api", GasStockApis);
 
 // app.use(express.static(path.join(__dirname,"./ultimate/build","index.html")))
 // app.use(express.static(path.join(__dirname, 'build')));

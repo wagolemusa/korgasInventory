@@ -1,6 +1,4 @@
 import { Schema, model } from "mongoose"
-import { pick } from 'lodash'
-
 
 const EmployeeSchema = new Schema({
     firstname: {
@@ -31,24 +29,24 @@ const EmployeeSchema = new Schema({
         type: String,
         required: true
     },
-    password: {
+    responsibilty:{
         type: String,
-        required: true,
-    },
-    verified:{
-        type: Boolean,
-        required: false,
+        required: true
     },
     address : {
         type: Schema.Types.ObjectId,
         ref: "Address"
+    },
+    town: {
+        type: String,
+        required: true
+    },
+    account: {
+        ref: "User",
+        type: Schema.Types.ObjectId,
     }
 
 }, {timestamps: true})
-
-EmployeeSchema.methods.getUserInfo = function () {
-    return pick(this, ["_id", "firstname", "lastname",  "email", "idnumber", "verified"]);
-}
 
 const Employee = model("employee", EmployeeSchema);
 export default Employee;

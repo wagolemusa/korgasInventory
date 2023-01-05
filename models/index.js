@@ -17,4 +17,4 @@ export { default as Stock} from './Stock'
 export { default as Tracker } from './Tracker'
 export { default as Treller } from  './Treller'
 export { default as Address} from './Address'
- 
+export { default as Customerprofile } from './CustomerProfile'

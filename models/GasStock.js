@@ -1,17 +1,29 @@
 import { Schema, model } from "mongoose"
 
 const GasStockSchema = new Schema({
-    openstock: {
+    date: {
         type: String,
+        required: false
+    },
+    openStock: {
+        type: Number,
         required: true
     },
     closedStock: {
         type: String,
         required: true
     },
-    gage: {
-        type: String,
+    totalstock: {
+        type: Number,
         required: false
+    },
+    currentStock: {
+        type: Number,
+        required: false
+    },
+    account: {
+        ref: "User",
+        type: Schema.Types.ObjectId,
     }
 }, { timestamps: true})
 

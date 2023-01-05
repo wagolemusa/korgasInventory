@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-
   "scripts": {
     "start": "node -r esm",
     "dev": "nodemon -r esm"
@@ -20,6 +19,7 @@
     "esm": "^3.2.25",
     "express": "^4.17.2",
     "express-validator": "^6.14.0",
+    "generate-password": "^1.7.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "mongoose": "^5.12.3",
