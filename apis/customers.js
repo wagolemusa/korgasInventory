@@ -55,4 +55,23 @@ router.post('/v1/customers', requiresSignin, CustomerValidation, async(req, res)
     }
 })
 
+/**
+ * @description Select only Business Name in Customers
+ * @access Only Manager, sub-Admin and Admin can access
+ * @api /api/v1/customers
+ * @type GET
+ */
+router.get("/v1/customers", requiresSignin, async(req, res) => {
+    try{
+
+        let buz = await Customers.find().select('businessname');
+        return res.status(200).json({
+            buz
+        })
+
+    }catch(err){
+        console.log(err)
+    }
+})
+
 export default router;

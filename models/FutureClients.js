@@ -22,8 +22,8 @@ const FutureclientsSchema = new Schema ({
         required: false
     },
     address : {
-        type: Schema.Types.ObjectId,
-        ref: "Address"
+       type: String,
+       required: false
     },
     account: {
         ref: "User",
