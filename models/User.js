@@ -15,26 +15,18 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
-    phonenumber: {
-        type: Number,
-        required: true,
-    },
-    idnumber:{
-        type: Number,
-        require: true,
-    },
-    sex: {
-        type: String,
-        required: true
-    },
     email: {
         type: String,
         required: true,
     },
     role: {
         type: String,
-        enum: ['manager', 'subadmin', 'shopkeeper', 'driver'],
+        enum: ['manager', 'subadmin', 'shopkeeper', 'driver', 'customer'],
         default: 'manager'
+    },
+    password1: {
+        type: String,
+        required: true,
     },
     password: {
         type: String,

@@ -5,21 +5,25 @@ const KgsSchema = new Schema ({
         type: String,
         required: true
     },
-    customers : {
-        type: Schema.Types.ObjectId,
-        ref: "Customers"
+    customer : {
+        type: String,
+        required: true
     },
     cylinders:[
         {
-            kgs:{type: String, required: true},
-            quantity: { type: String, required: true}
+            kgs:{type: Number, required: true},
+            quantity: { type: Number, required: true},
+            total: { type: Number, required: false}
         }
     ],
-    total: {
-        type: String,
+    finaltotal: {
+        type: Number,
         required: true
+    },
+    account: {
+        ref: "User",
+        type: Schema.Types.ObjectId,
     }
-
     
 }, { timestamps: true})
 

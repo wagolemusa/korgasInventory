@@ -20,4 +20,18 @@ router.post("/v1/address", async(req, res) => {
     }
 })
 
+
+router.get('/v1/address', async(req, res) => {
+
+    try{
+        let address = await Address.find();
+
+        return res.status(200).json({
+            address
+        })
+
+    }catch(err){
+        console.log(err)
+    }
+})
 export default router;

@@ -31,5 +31,18 @@ router.post("/v1/future/customer", requiresSignin, async(req, res) => {
     }
 })
 
+
+router.get("/v1/future/customer", requiresSignin, async(req, res) => {
+
+    try{
+
+        let future = await FutureClients.find()
+        return res.status(200).json({
+            future
+        })
+    }catch(err){
+        console.log(err)
+    }
+})
 export default router;
 

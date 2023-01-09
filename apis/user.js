@@ -6,7 +6,9 @@ import { DOMAIN } from '../constants';
 import sendMain from '../functions/emailSender'
 import { userAuth } from '../middlewares/auth';
 import Validator from '../middlewares/validater-middleware'
+import { requiresSignin } from '../middlewares';
 import { RegisterValidations, AuthenticateValidations, ResetPassword } from '../validators';
+import generator from 'generate-password'
 
 const router = Router()
 
@@ -17,22 +19,20 @@ const router = Router()
  * @type POST
  */
 
-router.post('/api/register', RegisterValidations, Validator, async (req, res) => {
+router.post('/api/register',RegisterValidations, Validator, async (req, res) => {
     try {
 
-        let { idnumber, email } = req.body;
+        let { firstname, lastname, password1, role, email } = req.body;
 
-        // check if Id Number exists
-        let user = await User.findOne({ idnumber });
-        if (user) {
-            return res.status(400).json({
-                success: false,
-                message: "This Id Number is already registerd",
-            })
-        }
+        let password = generator.generate({
+            length: 10,
+            numbers: true
+        });
+
+        password1 = password;
 
         // Check if email exists
-        user = await User.findOne({ email });
+        let user = await User.findOne({ email });
         if (user) {
             return res.status(400).json({
                 success: false,
@@ -41,8 +41,13 @@ router.post('/api/register', RegisterValidations, Validator, async (req, res) =>
             })
         }
         user = new User({
-            ...req.body,
+            firstname,
+            lastname,
+            role,
+            email,
             verificationCode: randomBytes(20).toString("hex"),
+            password1,
+            password
         })
         await user.save();
 
@@ -51,6 +56,7 @@ router.post('/api/register', RegisterValidations, Validator, async (req, res) =>
         <h1>Hello, ${user.lastname}</h1>
         <p>Please click the following link to verify your account</p>
         <a href="${DOMAIN}users/verify-now/${user.verificationCode}">Verify Now</a>
+         <p>Login with this: Email ${user.email} and Your password <b>${password}<b/></p>
     `;
         sendMain(user.email, "Verify Account", "Please verify Your Account", html);
         return res.status(201).json({
@@ -148,11 +154,12 @@ router.post("/api/authenticate", AuthenticateValidations, Validator, async(req, 
  * @type POST
  */
 
- router.get("/api/authenticate", userAuth,
+ router.get("/api/user",
  async(req, res)=>{
     console.log("REQ", req);
+    let user = await User.find();
     return res.status(200).json({
-       user: req.user
+        user
     });
 })
 
