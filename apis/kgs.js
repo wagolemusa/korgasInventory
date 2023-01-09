@@ -28,7 +28,7 @@ router.post("/v1/kgs", requiresSignin, async(req, res) => {
 router.get('/v1/kgs', requiresSignin, async(req, res) => {
     try{
 
-        let kgs = await Kgs.find();
+        let kgs = await Kgs.find().find().sort({_id: -1});
 
         return res.status(200).json({
             kgs
