@@ -15,30 +15,30 @@ const router = Router()
 router.post('/v1/customers', requiresSignin, async(req, res)=> {
     try{
         let { manager } = req;
-        let { phonenumber,whatsupnumber } = req.body;
+        // let { phonenumber,whatsupnumber } = req.body;
 
-        let customer1 = await Customers.findOne({ phonenumber })
-        if (customer1){
-            return res.status(411).json({
-                success: false,
-                message: "Customer phone Number exits"
-            })
-        }
-        let customer2 = await Customers.findOne({ whatsupnumber })
-        if (customer2){
-            return res.status(411).json({
-                success: false,
-                message: "Customer whatups Number exits"
-            })
-        }
-        const errors = validationResult(req);
-        if(!errors.isEmpty()){
-            return res.status(400).json({
-                success: false,
-                message: errors.array()
+        // let customer1 = await Customers.findOne({ phonenumber })
+        // if (customer1){
+        //     return res.status(411).json({
+        //         success: false,
+        //         message: "Customer phone Number exits"
+        //     })
+        // }
+        // let customer2 = await Customers.findOne({ whatsupnumber })
+        // if (customer2){
+        //     return res.status(411).json({
+        //         success: false,
+        //         message: "Customer whatups Number exits"
+        //     })
+        // }
+        // const errors = validationResult(req);
+        // if(!errors.isEmpty()){
+        //     return res.status(400).json({
+        //         success: false,
+        //         message: errors.array()
 
-            })
-        }
+        //     })
+        // }
         let customer = new Customers({
             account: manager.id,
             ... req.body
