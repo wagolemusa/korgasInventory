@@ -12,7 +12,7 @@ router.post("/v1/kgs", requiresSignin, async(req, res) => {
             account: manager.id,
             ...req.body 
         })
-
+        
         await gaskgs.save();
         return res.status(201).json({
             success: true,

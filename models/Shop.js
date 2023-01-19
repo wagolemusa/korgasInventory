@@ -6,11 +6,20 @@ const ShopSchema = new Schema({
         required: true,
     },
     address : {
-        type: Schema.Types.ObjectId,
-        ref: "Address"
+        type: String,
+        required: true
     },
+    town: {
+        type: String,
+        required: true
+    },
+
     employee: {
-        ref: "Employee",
+        type: String,
+        required: true
+    },
+    account: {
+        ref: "User",
         type: Schema.Types.ObjectId,
     }
 }, { timestamps: true})

@@ -6,8 +6,8 @@ const CustomerPriceSchema = new Schema({
         required: true
     },
     customer: {
-        ref: "Customerprofile",
-        type: Schema.Types.ObjectId,
+        type: String,
+        required: true
     },
     account: {
         ref: "User",

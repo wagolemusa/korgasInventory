@@ -18,6 +18,10 @@ import TrellerApis from  './apis/treller'
 import KgsApis from './apis/kgs'
 import FuturecustomerApis from './apis/futureCustomers'
 import GasStockApis from './apis/gasStock'
+import DashboardApis from './apis/Dashboard'
+import StockApi from './apis/shop/stock'
+import CategoryApi from './apis/shop/category'
+import ShopApi from './apis/shop/shop'
 
 
 
@@ -43,6 +47,10 @@ app.use("/api", TrellerApis)
 app.use("/api", KgsApis);
 app.use("/api", FuturecustomerApis);
 app.use("/api", GasStockApis);
+app.use("/api", DashboardApis);
+app.use("/api/", StockApi);
+app.use("/api", CategoryApi)
+app.use("/api", ShopApi);
 
 // app.use(express.static(path.join(__dirname,"./ultimate/build","index.html")))
 // app.use(express.static(path.join(__dirname, 'build')));

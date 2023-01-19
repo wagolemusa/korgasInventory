@@ -6,14 +6,13 @@ import { requiresSignin } from "../middlewares";
 
 const router = Router()
 
-
 /**
  * @description Create Customers Account
  * @access Only Manager, sub-Admin and Admin can access
  * @api /api/v1/customers
  * @type POST
  */
-router.post('/v1/customers', requiresSignin, CustomerValidation, async(req, res)=> {
+router.post('/v1/customers', requiresSignin, async(req, res)=> {
     try{
         let { manager } = req;
         let { phonenumber,whatsupnumber } = req.body;
@@ -69,6 +68,18 @@ router.get("/v1/customers", requiresSignin, async(req, res) => {
             buz
         })
 
+    }catch(err){
+        console.log(err)
+    }
+})
+
+
+router.get('/v1/clients', requiresSignin, async(req, res) => {
+    try{
+        let customer = await Customers.find();
+        return res.status(200).json({
+            customer
+        })
     }catch(err){
         console.log(err)
     }

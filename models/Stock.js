@@ -2,24 +2,28 @@ import { Schema, model } from 'mongoose'
 
 const StockSchema = new Schema ({
     category: {
-        type: Schema.Types.ObjectId,
-        ref: "Categoty"
-    },
-    size: {
-        type: Schema.Types.ObjectId,
-        ref: "Size"
-    },
-    quantity: {
-        type: Number,
+        type: String,
         required: true
     },
-    shop: {
-        ref: "Shop",
-        type: Schema.Types.ObjectId,
+    initial_quantity: {
+        type: Number,
+        default: 0
     },
-    tracker: {
+    added_stock: {
+        type: Number,
+        default: 0
+    },
+    stock_quantity:{
+        type: Number,
+        default: 0
+    },
+    shop: {
+      type: String,
+      required: true
+    },
+    account: {
+        ref: "User",
         type: Schema.Types.ObjectId,
-        ref: "Tracker"
     }
 }, {timestamps: true})
 
