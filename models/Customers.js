@@ -20,15 +20,15 @@ const CustomerSchema = new Schema({
     },
     mounthlySale: {
         type: Number,
-        required: true
+        required: false
     },
     address : {
         type: String,
-        required: true
+        required: false
     },
     town:{
         type:String,
-        required: true
+        required: false
     },
     price: {
         type: Number,
