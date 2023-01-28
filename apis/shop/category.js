@@ -1,11 +1,12 @@
 import { Router } from "express";
 import { Category } from "../../models";
+import { requiresSignin } from "../../middlewares";
 
 const router = Router()
 
 // creating Category
 
-router.post('/v1/category', async(req, res) => {
+router.post('/v1/category',requiresSignin, async(req, res) => {
 
     try{
         const { category_name } = req.body;
@@ -25,7 +26,7 @@ router.post('/v1/category', async(req, res) => {
 
 // Fetching the  category
 
-router.get('/v1/category', async(req, res) => {
+router.get('/v1/category', requiresSignin, async(req, res) => {
     try{
         let cate = await Category.find();
 

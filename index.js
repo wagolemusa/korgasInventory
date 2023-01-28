@@ -9,8 +9,8 @@ const path = require("path")
 var morgan = require('morgan')
 
 
-// import Routers
 
+// import Routers
 import UserApis from './apis/user';
 import AddressApis from './apis/address'
 import CustomerApis from './apis/customers'
@@ -22,7 +22,7 @@ import DashboardApis from './apis/Dashboard'
 import StockApi from './apis/shop/stock'
 import CategoryApi from './apis/shop/category'
 import ShopApi from './apis/shop/shop'
-
+import EmployeeApi from './apis/employee'
 
 
 // import passport middleware
@@ -31,7 +31,6 @@ require("./middlewares/passport-middleware")
 // Initialalize express application
 const app = express();
 dotenv.config()
-
 
 // Application Middlewares
 app.use(cors());
@@ -51,6 +50,7 @@ app.use("/api", DashboardApis);
 app.use("/api/", StockApi);
 app.use("/api", CategoryApi)
 app.use("/api", ShopApi);
+app.use("/api", EmployeeApi)
 
 // app.use(express.static(path.join(__dirname,"./ultimate/build","index.html")))
 // app.use(express.static(path.join(__dirname, 'build')));

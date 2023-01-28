@@ -5,6 +5,10 @@ const ShopSchema = new Schema({
         type: String,
         required: true,
     },
+    employee: {
+        type: String,
+        required: true
+    },
     address : {
         type: String,
         required: true
@@ -14,10 +18,7 @@ const ShopSchema = new Schema({
         required: true
     },
 
-    employee: {
-        type: String,
-        required: true
-    },
+
     account: {
         ref: "User",
         type: Schema.Types.ObjectId,
