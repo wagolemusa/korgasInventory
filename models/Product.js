@@ -1,15 +1,15 @@
 import { Schema, model } from 'mongoose'
 
 const ProductSchema = new Schema({
-    serial_number: {
+    category: {
         type: String,
         required: true
     },
-    retail_price: {
-        type: Number,
+    kgs: {
+        type: String,
         required: true
     },
-    wholesale_price: {
+    price: {
         type: Number,
         required: true,
     },
@@ -17,16 +17,8 @@ const ProductSchema = new Schema({
         type: String,
         required: false
     },
-    category: {
-        type: Schema.Types.ObjectId,
-        ref: "Categoty"
-    },
-    size: {
-        type: Schema.Types.ObjectId,
-        ref: "Size"
-    },
-    employee: {
-        ref: "Employee",
+    account: {
+        ref: "User",
         type: Schema.Types.ObjectId,
     }
 }, {timestamps: true})
