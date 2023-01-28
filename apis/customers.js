@@ -13,12 +13,9 @@ const router = Router()
  * @type POST
  */
 router.post('/v1/customers', requiresSignin, async(req, res)=> {
-    try{
-        let { manager } = req;
-        // let { phonenumber,whatsupnumber } = req.body;
+    try{Categoryproductsne({ phonenumber })
+        // if (customer1){            account: manager.id,
 
-        // let customer1 = await Customers.findOne({ phonenumber })
-        // if (customer1){
         //     return res.status(411).json({
         //         success: false,
         //         message: "Customer phone Number exits"
