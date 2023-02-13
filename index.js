@@ -24,6 +24,7 @@ import CategoryApi from './apis/shop/category'
 import ShopApi from './apis/shop/shop'
 import EmployeeApi from './apis/employee'
 import ProductApis from './apis/product'
+import TankCategoryApis from './apis/tankcategory'
 import CategoryProductApi from './apis/categoryProduct'
 
 
@@ -55,6 +56,7 @@ app.use("/api", ShopApi);
 app.use("/api", EmployeeApi);
 app.use("/api", ProductApis);
 app.use("/api", CategoryProductApi);
+app.use("/api", TankCategoryApis)
 
 // app.use(express.static(path.join(__dirname,"./ultimate/build","index.html")))
 // app.use(express.static(path.join(__dirname, 'build')));

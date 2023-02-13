@@ -7,5 +7,7 @@ export const DOMAIN = process.env.APP_DOMIAN;
 export const SENDGRID_API = process.env.APP_SENDGRID_API;
 export const HOST_EMAIL = process.env.APP_HOST_EMAIL;
 export const PORT  = process.env.PORT || process.env.APP_PORT;
+export const accountSid = process.env.ACCOUNTSID
+export const authToken = process.env.AUTHTOKEN
 
 

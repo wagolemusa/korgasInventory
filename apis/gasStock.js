@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { GasStock } from "../models";
+import { GasStock, Tankcategories } from "../models";
 import { requiresSignin } from "../middlewares";
 
 
@@ -10,6 +10,8 @@ router.post("/v1/stock", requiresSignin, async (req, res) => {
         let { manager } = req;
         let { date, openStock, closedStock, currentStock } = req.body;
          const totalstock = Number(openStock ) + Number(closedStock) 
+         
+         let tank = await Tankcategories.findOne().sort({_id: -1});
 
          currentStock = totalstock
         let stock = new GasStock({
@@ -18,7 +20,8 @@ router.post("/v1/stock", requiresSignin, async (req, res) => {
             openStock,
             closedStock,
             totalstock,
-            currentStock
+            currentStock,
+            tank_category: tank.korgas_tank
         })
 
         await stock.save();
@@ -44,7 +47,6 @@ router.get("/v1/stock", requiresSignin, async (req, res) => {
         console.log(err)
     }
 })
-
 
 export default router
 

@@ -18,3 +18,5 @@ export { default as Treller } from  './Treller'
 export { default as Address} from './Address'
 export { default as Customers } from './Customers'
 export { default as CategoryProduct } from './CategoryProduct'
+export { default as Tankcategories } from './TankCategory'
+

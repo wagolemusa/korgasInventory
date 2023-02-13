@@ -5,6 +5,10 @@ const KgsSchema = new Schema ({
         type: String,
         required: true
     },
+    tank_category: {
+        type: String,
+        required: true
+    },
     customer : {
         type: String,
         required: true
@@ -19,6 +23,10 @@ const KgsSchema = new Schema ({
     finaltotal: {
         type: Number,
         required: true
+    },
+    in_stock: {
+        type: String,
+        default: "In_stack"
     },
     account: {
         ref: "User",

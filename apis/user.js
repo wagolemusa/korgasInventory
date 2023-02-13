@@ -23,7 +23,7 @@ router.post('/api/register',RegisterValidations, Validator, async (req, res) => 
     try {
 
         let { firstname, lastname, password1, role, email } = req.body;
-
+        whatsup
         let password = generator.generate({
             length: 10,
             numbers: true

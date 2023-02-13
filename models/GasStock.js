@@ -21,6 +21,14 @@ const GasStockSchema = new Schema({
         type: Number,
         required: false
     },
+    tank_category: {
+        type: String,
+        required: true
+    },
+    in_stock: {
+        type: String,
+        default: "In_stack"
+    },
     account: {
         ref: "User",
         type: Schema.Types.ObjectId,
