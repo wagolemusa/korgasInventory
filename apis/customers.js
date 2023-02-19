@@ -70,13 +70,41 @@ router.get("/v1/customers", requiresSignin, async(req, res) => {
     }
 })
 
-
+// featch all customers data
 router.get('/v1/clients', requiresSignin, async(req, res) => {
     try{
         let customer = await Customers.find();
         return res.status(200).json({
             customer
         })
+    }catch(err){
+        console.log(err)
+    }
+})
+
+// Query Customer by Id
+router.get('/v1/client/:id', requiresSignin, async(req, res) => {
+    try{
+        const client = await Customers.findById(req.params.id);
+        return res.status(200).json({
+            client
+        })
+
+    }catch(err){
+        console.log(err)
+    }
+})
+
+// Update Customer
+router.put('/v1/customer/:id', requiresSignin, async(req, res) => {
+    const { id } = req.params;
+    try{
+        const {businessname,phonenumber, whatsupnumber, email, mounthlySale,address,town, price } = req.body;
+        const coustomer = await Customers.findByIdAndUpdate(id, {businessname,phonenumber, whatsupnumber, email, mounthlySale,address,town, price })
+        return res.status(201).json({
+            coustomer
+        })
+
     }catch(err){
         console.log(err)
     }
