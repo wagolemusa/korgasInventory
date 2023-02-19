@@ -18,8 +18,8 @@ const CustomerSchema = new Schema({
         type: String,
         required: false
     },
-    mounthlySale: {
-        type: Number,
+    category: {
+        type: String,
         required: false
     },
     address : {
