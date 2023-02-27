@@ -1,9 +1,8 @@
 import { Router } from "express";
 import { Kgs,Tankcategories } from "../models"; 
 import { requiresSignin } from "../middlewares";
-import { accountSid, authToken } from "../constants/index";
 import mulitemail from "../functions/multSender";
-const client = require('twilio')(accountSid, authToken);
+
 
 const router = Router()
 
