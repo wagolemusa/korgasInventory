@@ -26,6 +26,7 @@ import EmployeeApi from './apis/employee'
 import ProductApis from './apis/product'
 import TankCategoryApis from './apis/tankcategory'
 import CategoryProductApi from './apis/categoryProduct'
+import BookApi from './apis/customers/book'
 
 
 // import passport middleware
@@ -56,7 +57,8 @@ app.use("/api", ShopApi);
 app.use("/api", EmployeeApi);
 app.use("/api", ProductApis);
 app.use("/api", CategoryProductApi);
-app.use("/api", TankCategoryApis)
+app.use("/api", TankCategoryApis);
+app.use("/api", BookApi);
 
 // app.use(express.static(path.join(__dirname,"./ultimate/build","index.html")))
 // app.use(express.static(path.join(__dirname, 'build')));

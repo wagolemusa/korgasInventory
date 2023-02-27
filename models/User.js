@@ -24,6 +24,10 @@ const UserSchema = new Schema({
         enum: ['manager', 'subadmin', 'shopkeeper', 'driver', 'customer'],
         default: 'manager'
     },
+    price:{
+        type: Number,
+        required: true
+    },
     password1: {
         type: String,
         required: true,
@@ -80,7 +84,7 @@ UserSchema.methods.generatePasswordReset = function () {
 };
 
 UserSchema.methods.getUserInfo = function () {
-    return pick(this, ["_id", "firstname", "lastname", "middlename", "email", "idnumber", "role", "verified"]);
+    return pick(this, ["_id", "firstname", "lastname", "price", "email",  "role", "verified"]);
 }
 
 const User = model("user", UserSchema);

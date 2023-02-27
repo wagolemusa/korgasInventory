@@ -19,4 +19,5 @@ export { default as Address} from './Address'
 export { default as Customers } from './Customers'
 export { default as CategoryProduct } from './CategoryProduct'
 export { default as Tankcategories } from './TankCategory'
+export { default as Book } from './customer/Book'
 

@@ -39,6 +39,31 @@ const jwt = require("jsonwebtoken");
     }
   }
 
+  // customer Role
+  export const requiresCustomer = (req, res, next) => {
+    if (req.headers.authorization) {
+        const token = req.headers.authorization.split(" ")[1];
+      jwt.verify(token, SECRECT, (err, decodedToken) => {
+        if (err) {
+          return res.status(401).json({ message: "Not authorized your" })
+        } else {
+          if (decodedToken.role !== "customer") {
+            return res.status(401).json({ message: "Not authorized" })
+          } else {
+            req.customer = decodedToken;
+            console.log(decodedToken)
+            next()
+          }
+        }
+      })
+    } else {
+      return res
+        .status(401)
+        .json({ message: "Not authorized, token not available" })
+    }
+  }
+
+
   // Collector
   export const collector = (req, res, next) => {
     if (req.headers.authorization) {
