@@ -22,8 +22,8 @@ const router = Router()
 router.post('/api/register',RegisterValidations, Validator, async (req, res) => {
     try {
 
-        let { firstname, lastname, password1, role, email } = req.body;
-        whatsup
+        let { firstname, lastname, password1, role, email, price } = req.body;
+       
         let password = generator.generate({
             length: 10,
             numbers: true
@@ -45,10 +45,13 @@ router.post('/api/register',RegisterValidations, Validator, async (req, res) => 
             lastname,
             role,
             email,
+            price,
             verificationCode: randomBytes(20).toString("hex"),
             password1,
             password
         })
+
+        console.log("Price", price)
         await user.save();
 
         // Send the email to the user with a varification code
