@@ -21,25 +21,25 @@ router.post("/v1/kgs", requiresSignin, async(req, res) => {
         
         await gaskgs.save();
         
-        let subject = "Gas Orders"
-        let text = "musa"
+        // let subject = "Gas Orders"
+        // let text = "musa"
 
-        let order = gaskgs.cylinders.map(item => (
-            `${item.kgs} kgs ... ${item.quantity} cylinders = ${item.total} <br/>`
-        ))
-        let html = `
+        // let order = gaskgs.cylinders.map(item => (
+        //     `${item.kgs} kgs ... ${item.quantity} cylinders = ${item.total} <br/>`
+        // ))
+        // let html = `
         
-        ----------------------------------------------------
+        // ----------------------------------------------------
         
-            <h2>${gaskgs.customer}'s Order </h2> 
-            <b> On ${gaskgs.date}<b/><br/>
-           <h3> ${order.join("\n")}</h3/><br/>
-            <h1>Total: <b>${gaskgs.finaltotal} <b/></h1>
+        //     <h2>${gaskgs.customer}'s Order </h2> 
+        //     <b> On ${gaskgs.date}<b/><br/>
+        //    <h3> ${order.join("\n")}</h3/><br/>
+        //     <h1>Total: <b>${gaskgs.finaltotal} <b/></h1>
 
-            -----------------------------------------------
-        `
+        //     -----------------------------------------------
+        // `
 
-        mulitemail(subject, text, html)
+        // mulitemail(subject, text, html)
 
         return res.status(201).json({
             success: true,

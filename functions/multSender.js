@@ -7,7 +7,7 @@ const  mulitemail = async ( subject, text, html) =>{
     try{
         const msg = {
             from: HOST_EMAIL,
-            to: ['homiemusa@gmail.com','smohjama@gmail.com','korgasventures@gmail.com' ],
+            to: ['homiemusa@gmail.com', 'xamaade7@gmail.com'],
             subject,
             text,
             html,
@@ -22,3 +22,4 @@ const  mulitemail = async ( subject, text, html) =>{
 }
 
 export default mulitemail;
+// to: ['homiemusa@gmail.com','smohjama@gmail.com','korgasventures@gmail.com' ],
