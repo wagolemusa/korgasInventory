@@ -13,7 +13,8 @@ const router = Router()
  * @type POST
  */
 router.post('/v1/customers', requiresSignin, async(req, res)=> {
-    try{Categoryproductsne({ phonenumber })
+    try{
+        // Categoryproductsne({ phonenumber })
         // if (customer1){            account: manager.id,
 
         //     return res.status(411).json({
