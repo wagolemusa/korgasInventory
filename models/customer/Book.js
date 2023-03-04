@@ -25,6 +25,10 @@ const BookSchema = new Schema({
         type: String,
         required: false
     },
+    paymentmethod: {
+        type: String,
+        required: false
+    },
     payment: {
         type: String,
         default: "notpaid"
