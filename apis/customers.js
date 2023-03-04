@@ -14,6 +14,7 @@ const router = Router()
  */
 router.post('/v1/customers', requiresSignin, async(req, res)=> {
     try{
+        let { manager } = req;
         // Categoryproductsne({ phonenumber })
         // if (customer1){            account: manager.id,
 
