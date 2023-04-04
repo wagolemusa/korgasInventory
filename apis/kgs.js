@@ -66,6 +66,45 @@ router.get('/v1/kgs', requiresSignin, async(req, res) => {
     }
 })
 
+// Search Queries by Date
+router.post("/v1/date", requiresSignin, async(req, res) => {
+    try{
+
+        let { date } = req.body
+
+        let search = await Kgs.find({date: date}).sort({date: -1});
+
+        return res.status(200).json({
+            search
+        })
+
+    }catch(err){
+        console.log(err)
+    }
+})
+
+
+
+// Search Date and customer's name
+router.post("/v1/search", requiresSignin, async(req, res) => {
+    try{
+
+        let {  } = req.body
+
+        let dateCustomer = await Kgs.find({ }).sort()
+
+
+        console.log(dateCustomer)
+        return res.status(200).json({
+            dateCustomer
+        })
+    }catch(err){
+        console.log(err)
+    }
+})
+
+
+// No longer working this API
 router.patch("/v1/update/stock", requiresSignin, async(req, res) => {
     try{
 
