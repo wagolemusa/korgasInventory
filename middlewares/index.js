@@ -18,7 +18,7 @@ const jwt = require("jsonwebtoken");
 
   export const requiresSignin = (req, res, next) => {
     if (req.headers.authorization) {
-        const token = req.headers.authorization.split(" ")[1];
+        const token = req.headers.authorizaton.split(" ")[1];
       jwt.verify(token, SECRECT, (err, decodedToken) => {
         if (err) {
           return res.status(401).json({ message: "Not authorized your" })
